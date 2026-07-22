@@ -3,10 +3,11 @@ name: Build
 on:
   push:
     branches: [ main ]
+    tags: [ 'v*' ]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 jobs:
@@ -58,3 +59,10 @@ jobs:
         with:
           name: nx-oldcombat-jar
           path: build/libs/*.jar
+
+      - name: Create Release
+        if: success() && startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/libs/*.jar
+          generate_release_notes: true
