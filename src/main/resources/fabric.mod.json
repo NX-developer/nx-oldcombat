@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "nxoldcombat",
+  "version": "${version}",
+  "name": "NX Old Combat",
+  "description": "Restores pre-1.9 (1.8-style) PvP combat: no attack cooldown, no sweep attack.",
+  "authors": [
+    "NX-developer"
+  ],
+  "contact": {
+    "homepage": "https://github.com/NX-developer"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.nx.oldcombat.OldCombatMod"
+    ]
+  },
+  "mixins": [
+    "oldcombat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "1.21.x",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
